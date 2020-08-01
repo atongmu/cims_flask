@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask_restful import Resource, fields, marshal_with, reqparse
 from app.apis.api_constant import HTTP_OK
 from app.ext import multi_auth
@@ -51,7 +53,12 @@ class SelectOrderResource(Resource):
         if status is not None:
             _condition.append(OrderDefault.status == status)
         if create_date is not None:
-            _condition.append(OrderDefault.name.create_date == create_date)
+            # 时间筛选
+            if '/' in create_date:
+                record_date = datetime.strptime(create_date, "%Y/%m/%d")
+            else:
+                record_date = datetime.strptime(create_date, "%Y-%m-%d")
+            _condition.append(OrderDefault.name.create_date == record_date)
         if _condition:
             system_page = OrderDefault.query.filter(*_condition).order_by(OrderDefault.create_date.desc()).paginate(
                 page_no, page_size)
