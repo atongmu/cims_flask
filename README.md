@@ -1,7 +1,3 @@
-# flask_admin
-
-
-
 #### 本地部署
 *pip freeze > requirements.txt*
 1. 安装依赖库 pip install -i https://pypi.doubanio.com/simple/ -r requirements.txt
@@ -9,13 +5,8 @@
 3. 初始化数据库 python manage.py db init
 4. 创建数据库 python manage.py db migrate
 5. 创建数据库 python manage.py db upgrade
-6. python table_sql.py create_ations
-7. python table_sql.py create_permission 
-8. python table_sql.py create_menu 
-9. python table_sql.py create_role 
-10. python table_sql.py create_user  *用户名和密码修改，table_sql.py下的create_user函数*
-11. python table_sql.py create_role_permission
-13. 测试运行 python manage.py runserver
+6. python table_sql.py create_user  *用户名和密码修改，table_sql.py下的create_user函数*
+7. 测试运行 python manage.py runserver
 
 #### ubuntu 16.04 部署
 
@@ -53,10 +44,7 @@ sudo killall uwsgi
 
 1. Flask-Cors 解决跨域问题
 2. Flask-RESTful 用于在前端与后台进行通信的一套规范。
-3. Flask-Caching 缓存组件 https://pythonhosted.org/Flask-Caching/
-3. Flask-Avatars 头像生成工具组件 https://flask-avatars.readthedocs.io/en/latest/
-4. flask-moment 时间和日期处理函数组件 https://github.com/miguelgrinberg/flask-moment/
-4. Flask-Docs api文档
+3. Flask-Docs api文档
 
 #### 使用说明
 
