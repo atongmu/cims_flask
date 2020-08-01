@@ -19,8 +19,6 @@ class AdminTokenResource(Resource):
             abort(404, msg="用户不存在")
         if not manager.verify_password(pwd):
             abort(404, msg="用户名密码错误！")
-        # 存入flask-login
-        # login_user(manager)
         # 返回token值
         token = manager.generate_auth_token()
         data = {

@@ -29,7 +29,6 @@ single_goods_fields = {
 
 class SelectGoodsResource(Resource):
     """查询物料"""
-    decorators = [multi_auth.login_required]
 
     @marshal_with(single_goods_fields)
     def get(self):

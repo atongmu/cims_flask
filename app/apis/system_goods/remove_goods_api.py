@@ -10,7 +10,6 @@ parse_base.add_argument("g_id", type=str, required=True, help="请输入请求�
 class RemoveGoodsResource(Resource):
     """删除物料"""
 
-    @multi_auth.login_required
     def post(self):
         args = parse_base.parse_args()
         g_id = args.get("g_id")

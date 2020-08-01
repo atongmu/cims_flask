@@ -40,7 +40,6 @@ single_order_fields = {
 
 class SelectOrderResource(Resource):
     """查询物料订单"""
-    decorators = [multi_auth.login_required]
 
     @marshal_with(single_order_fields)
     def get(self):

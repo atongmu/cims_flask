@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
-
 from sqlalchemy import Column, Integer, DateTime, Boolean
-
 from app.ext import db
 
 

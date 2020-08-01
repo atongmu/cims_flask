@@ -13,7 +13,6 @@ parse_base.add_argument("desc", type=int, help="请输入请求参数")
 class AppendOrderResource(Resource):
     """添加物料"""
 
-    @multi_auth.login_required
     def post(self):
         args = parse_base.parse_args()
         g_id = args.get("g_id")

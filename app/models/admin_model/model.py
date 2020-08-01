@@ -1,6 +1,5 @@
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from sqlalchemy import String, Column, Boolean, Integer, ForeignKey, Text
-from sqlalchemy.orm import relationship
+from sqlalchemy import String, Column,Text
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.config import Config

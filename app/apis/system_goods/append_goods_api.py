@@ -1,6 +1,5 @@
 from flask_restful import Resource, reqparse, abort
 from app.apis.api_constant import HTTP_OK
-from app.ext import multi_auth
 from app.models import GoodsDefault
 
 parse_base = reqparse.RequestParser()
@@ -11,12 +10,10 @@ parse_base.add_argument("desc", type=str, help="请输入请求参数")
 class AppendGoodsResource(Resource):
     """添加物料"""
 
-    @multi_auth.login_required
     def post(self):
         args = parse_base.parse_args()
         name = args.get("name")
         desc = args.get("desc")
-
         goods_default = GoodsDefault()
         goods_default.name = name
         if desc:

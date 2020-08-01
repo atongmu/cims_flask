@@ -22,7 +22,7 @@ manager.add_command("db", MigrateCommand)
 
 # 创建管理员
 @manager.command
-def create_manager():
+def create_user():
     managers = Managers(users_name="bing", password="888888")
     db.session.add(managers)
     try:
