@@ -37,7 +37,8 @@ class FindGoodsResource(Resource):
         page_no = args.get("page_no")
         page_size = args.get("page_size")
         system_goods = GoodsDefault.query.get(g_id)
-        system_page = system_goods.order.order_by(OrderDefault.create_date.desc()).paginate(page_no, page_size)
+        if system_goods.order:
+            system_page = system_goods.order.order_by(OrderDefault.create_date.desc()).paginate(page_no, page_size)
         data = {
             "status": HTTP_OK,
             "msg": u"获取成功",
