@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
+import sys
 from flask import Flask
 from flask_cors import CORS
-
 from app.config import config
 from app.ext import init_ext
 from app.middleware import load_middleware
 from app import models
+
+reload(sys)
+sys.setdefaultencoding("utf8")
 
 
 def create_app(config_class=None):

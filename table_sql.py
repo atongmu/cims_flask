@@ -6,7 +6,7 @@ from app.ext import db
 from app.models import Managers
 
 app = create_app(config['development'])
-
+# app = create_app(config['default'])
 # 创建数据库迁移工具对象的步足有3步
 # 1. 创建flask脚本管理工具对象
 manager = Manager(app)

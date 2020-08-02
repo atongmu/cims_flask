@@ -17,7 +17,7 @@ class BaseMixinsModel(db.Model):
             db.session.commit()
             return True
         except Exception as e:
-            print('save:' + e.message)
+            print 'save:' + e.message
             return False
 
     def is_update(self):
@@ -25,7 +25,7 @@ class BaseMixinsModel(db.Model):
             db.session.commit()
             return True
         except Exception as e:
-            print('update:' + e.message)
+            print 'update:' + e.message
             return False
 
     def is_delete(self):
@@ -34,7 +34,7 @@ class BaseMixinsModel(db.Model):
             db.session.commit()
             return True
         except Exception as e:
-            print('delete:' + e.message)
+            print 'delete:' + e.message
             return False
 
     def count(self, _filters):
@@ -42,5 +42,5 @@ class BaseMixinsModel(db.Model):
             count_number = db.session.query(self).filter(_filters).count()
             return count_number
         except Exception as e:
-            print('count:' + e.message)
+            print 'count:' + e.message
             return None

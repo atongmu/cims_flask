@@ -13,10 +13,10 @@ def verify_token(token):
     try:
         data = s.loads(token)
     except BadSignature:
-        print(u'token不正确')
+        print u'token不正确'
         return False
     except SignatureExpired:
-        print(u'token过期')
+        print u'token过期'
         return False
     user = Managers.query.get(data['id'])
     if user:
