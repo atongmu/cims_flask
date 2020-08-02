@@ -30,7 +30,7 @@ class DevelopmentConfig(Config):
         "USER": "root",
         "PASSWORD": "1234",
         "HOST": "127.0.0.1",
-        "PORT": "3309",
+        "PORT": "3306",
         "NAME": "flask_cims"
     }
     SQLALCHEMY_DATABASE_URI = get_db_url(dbinfo)

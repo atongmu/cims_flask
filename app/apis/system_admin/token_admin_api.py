@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 from flask_restful import Resource, reqparse, abort
 from app.apis.api_constant import HTTP_OK
 from app.apis.system_admin.admin_utils import get_admin
 
 parse_base = reqparse.RequestParser()
-parse_base.add_argument("customer", type=str, required=True, help="请输入请求参数")
-parse_base.add_argument("password", type=str, required=True, help="请输入请求参数")
+parse_base.add_argument("customer", type=str, required=True, help=u"请输入请求参数")
+parse_base.add_argument("password", type=str, required=True, help=u"请输入请求参数")
 
 
 class AdminTokenResource(Resource):

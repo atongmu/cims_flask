@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import g
 from flask_restful import Resource, fields, marshal_with
 from app.apis.api_constant import HTTP_OK

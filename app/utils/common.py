@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import hashlib
 
 ALLOWED_file_EXTENSIONS = set(['md', 'MD', 'word', 'txt', 'py', 'java', 'c', 'c++', 'xlsx'])

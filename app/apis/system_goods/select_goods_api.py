@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
 from flask_restful import Resource, fields, marshal_with, reqparse
 from app.apis.api_constant import HTTP_OK
 from app.ext import multi_auth
 from app.models import GoodsDefault
 
 parse_base = reqparse.RequestParser()
-parse_base.add_argument("name", type=str, help="请输入请求参数")
-parse_base.add_argument("page_no", type=int, required=True, help="请输入请求参数")
-parse_base.add_argument("page_size", type=int, required=True, help="请输入请求参数")
+parse_base.add_argument("name", help=u"请输入请求参数")
+parse_base.add_argument("page_no", type=int, required=True, help=u"请输入请求参数")
+parse_base.add_argument("page_size", type=int, required=True, help=u"请输入请求参数")
 
 goods_fields = {
     "id": fields.Integer,

@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 from flask_restful import Resource, reqparse, abort
 from app.apis.api_constant import HTTP_OK
 from app.models import GoodsDefault
 
 parse_base = reqparse.RequestParser()
-parse_base.add_argument("name", type=str, required=True, help="请输入请求参数")
-parse_base.add_argument("desc", type=str, help="请输入请求参数")
+parse_base.add_argument("name", required=True, help=u"请输入请求参数")
+parse_base.add_argument("desc", help=u"请输入请求参数")
 
 
 class AppendGoodsResource(Resource):
@@ -20,7 +21,7 @@ class AppendGoodsResource(Resource):
             goods_default.desc = desc
 
         if not goods_default.is_save():
-            abort(404, msg="添加失败")
+            abort(404, msg=u"添加失败")
         data = {
             "status": HTTP_OK,
             "msg": u"添加成功"

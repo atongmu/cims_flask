@@ -1,13 +1,13 @@
+# -*- coding: utf-8 -*-
 from flask_restful import Resource, reqparse, abort
 from app.apis.api_constant import HTTP_OK
-from app.ext import multi_auth
 from app.models import GoodsDefault, OrderDefault
 
 parse_base = reqparse.RequestParser()
-parse_base.add_argument("g_id", type=int, required=True, help="请输入请求参数")
-parse_base.add_argument("status", type=bool, required=True, help="请输入请求参数")
-parse_base.add_argument("num", type=int, required=True, help="请输入请求参数")
-parse_base.add_argument("desc", type=int, help="请输入请求参数")
+parse_base.add_argument("g_id", type=int, required=True, help=u"请输入请求参数")
+parse_base.add_argument("status", type=int, required=True, help=u"请输入请求参数")
+parse_base.add_argument("num", type=int, required=True, help=u"请输入请求参数")
+parse_base.add_argument("desc", help=u"请输入请求参数")
 
 
 class AppendOrderResource(Resource):
@@ -22,15 +22,15 @@ class AppendOrderResource(Resource):
 
         goods_default = GoodsDefault.query.get(g_id)
         if goods_default is None:
-            abort(404, msg="无此商品")
+            abort(404, msg=u"无此商品")
         # 修改库存
-        if status:
+        if status == 1:
             goods_default.stock += num
         else:
             goods_default.stock -= num
 
         if not goods_default.is_update():
-            abort(404, msg="操作失败")
+            abort(404, msg=u"操作失败")
 
         # 创建订单
         order_default = OrderDefault()
@@ -41,7 +41,7 @@ class AppendOrderResource(Resource):
             order_default.desc = desc
 
         if not order_default.is_save():
-            abort(404, msg="操作失败")
+            abort(404, msg=u"操作失败")
         data = {
             "status": HTTP_OK,
             "msg": u"操作成功"

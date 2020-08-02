@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import g, jsonify, make_response
 from app.config import Config
 from app.ext import token_auth
@@ -12,10 +13,10 @@ def verify_token(token):
     try:
         data = s.loads(token)
     except BadSignature:
-        print('token不正确')
+        print(u'token不正确')
         return False
     except SignatureExpired:
-        print('token过期')
+        print(u'token过期')
         return False
     user = Managers.query.get(data['id'])
     if user:

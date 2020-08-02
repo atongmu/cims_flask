@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask_restful import Api
 
 from app.apis.system_goods.append_goods_api import AppendGoodsResource

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from sqlalchemy import String, Column,Text
 from werkzeug.security import generate_password_hash, check_password_hash
