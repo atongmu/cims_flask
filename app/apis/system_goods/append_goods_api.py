@@ -15,6 +15,9 @@ class AppendGoodsResource(Resource):
         args = parse_base.parse_args()
         name = args.get("name")
         desc = args.get("desc")
+        goods = GoodsDefault.quser.filter(GoodsDefault.name == name).all()
+        if goods:
+            abort(404, msg=u"物料已存在")
         goods_default = GoodsDefault()
         goods_default.name = name
         if desc:
