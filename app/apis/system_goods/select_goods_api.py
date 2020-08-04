@@ -5,7 +5,7 @@ from app.ext import multi_auth
 from app.models import GoodsDefault
 
 parse_base = reqparse.RequestParser()
-parse_base.add_argument("name", help=u"请输入请求参数")
+parse_base.add_argument("name", type=str, help=u"请输入请求参数")
 parse_base.add_argument("page_no", type=int, required=True, help=u"请输入请求参数")
 parse_base.add_argument("page_size", type=int, required=True, help=u"请输入请求参数")
 
