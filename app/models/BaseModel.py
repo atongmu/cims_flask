@@ -8,8 +8,8 @@ class BaseModel(db.Model):
     """模型基类"""
     __abstract__ = True
     id = Column(Integer(), primary_key=True, autoincrement=True)
-    create_date = Column(DateTime(), default=datetime.now(), comment=u"添加时间")
-    update_date = Column(DateTime(), default=datetime.now(), onupdate=datetime.now(), comment=u"修改时间")
+    create_date = Column(DateTime(), default=datetime.now(), nullable=True, comment=u"添加时间")
+    update_date = Column(DateTime(), default=datetime.now(), onupdate=datetime.now(), nullable=True, comment=u"修改时间")
     sort = Column(Integer(), default=0, comment=u"排序")
     is_show = Column(Boolean(), default=True, comment=u"是否显示")
 
