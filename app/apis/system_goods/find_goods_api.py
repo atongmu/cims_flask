@@ -19,6 +19,8 @@ order_fields = {
 pages_goods = {
     "pages": fields.Integer,
     "total": fields.Integer,
+    "name": fields.String,
+    "stock": fields.Integer,
     "items": fields.List(fields.Nested(order_fields)),
 }
 single_goods_fields = {
@@ -39,12 +41,22 @@ class FindGoodsResource(Resource):
         page_no = args.get("page_no")
         page_size = args.get("page_size")
         system_goods = GoodsDefault.query.get(g_id)
+        goods_detail = {
+            "name": system_goods.name,
+            "stock": system_goods.stock,
+            "pages": 0,
+            "total": 0,
+            "items": None
+        }
         if system_goods.order:
             system_page = system_goods.order.filter(OrderDefault.status == status).order_by(
                 OrderDefault.create_date.desc()).paginate(page_no, page_size)
+            goods_detail["pages"] = system_page.pages
+            goods_detail["total"] = system_page.total
+            goods_detail["items"] = system_page.items
         data = {
             "status": HTTP_OK,
             "msg": u"获取成功",
-            "data": system_page
+            "data": goods_detail
         }
         return data
