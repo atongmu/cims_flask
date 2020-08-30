@@ -22,7 +22,7 @@ class GoodsDefault(BaseModel):
 class OrderDefault(BaseMixinsModel):
     """物料订单"""
     __tablename__ = "p_order_default"
-    create_date = Column(DateTime(), default=datetime.now(), nullable=True, comment=u"添加时间")
+    create_date = Column(DateTime(), default=datetime.now, comment=u"添加时间")
     num = Column(Integer(), default=0, comment=u"数量")
     status = Column(Boolean(), default=True, comment=u"True进货，False出货")
     desc = Column(String(200), comment=u"描述")
